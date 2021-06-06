@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Añadir nuevo cliente</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'catalogos/site.css' %}"/>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container center">
+        <h1><b>Añadir nuevo cliente</b></h1>
+        <div class "row form-row center">
+            <div class="col-4 formulario center ">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <form action="/nuevo/">
+                    <a href="/nuevo/">
+                        <button type="submit" class="boton btn btn-success">Añadir</button>
+                    </a>
+                </form>
+                    <a href="/clientes/">
+                        <button type="submit" class="boton btn btn-danger">Salir</button>
+                    </a>   
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+{% bootstrap_javascript jquery='full' %}
+</html>

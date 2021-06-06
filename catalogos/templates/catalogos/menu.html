@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>  
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Menu Churrasqueria</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'catalogos/site.css' %}"/>
+</head>
+<body>
+    <div class="container">
+        <h1><b>Menu</b></h1>         
+            <table class="table table-warning table-hover ">
+                <thead class="table-dark table-thead">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for menu in Producto %}
+                    <tr>
+                        <td> {{menu.descripcion}} </td>
+                        <td> {{menu.p_venta}} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="/pedidos/">
+            <button type="submit" class="boton btn btn-warning">Ver Pedidos</button>
+            </a>
+            <a href="/clientes/">
+            <button type="submit" class="boton btn btn-warning">Ver Clientes</button>
+            </a>
+
+        </div>
+
+    </body>
+    {% bootstrap_javascript jquery=' full ' %}
+</html>

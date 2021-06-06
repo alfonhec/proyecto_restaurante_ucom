@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>  
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Catalogos Restaurante</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'catalogos/site.css' %}"/>
+</head>
+<body>
+    <div class="container">
+        <h1><b>Clientes</b></h1>         
+            <table class="table table-warning table-hover">
+                <thead class="table-dark table-thead">
+                    <tr>
+                        <th scope="col">Codigo Cliente</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Numero Documento</th>
+                        <th scope="col">Numero Telefono</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Ultima compra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in Cliente %}
+                    <tr>
+                        <td> {{cliente.id_cliente}} </td>
+                        <td> {{cliente.nombre}} </td>
+                        <td> {{cliente.apellido}} </td>
+                        <td> {{cliente.documento}} </td>
+                        <td> {{cliente.celular}} </td>
+                        <td> {{cliente.email}} </td>
+                        <td> {{cliente.ultima_compra}} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="/nuevo/">
+            <button type="submit" class="boton btn btn-success">Añadir Clientes</button>
+            </a>
+            <a href="/">
+            <button type="submit" class="boton btn btn-warning">Ir a Menu</button>
+            </a>
+            <a href="/pedidos/">
+            <button type="submit" class="boton btn btn-warning">Ir a Pedidos</button>
+            </a>
+        </div>
+    </body>
+    {% bootstrap_javascript jquery=' full ' %}
+</html>

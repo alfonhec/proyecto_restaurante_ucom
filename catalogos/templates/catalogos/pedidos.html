@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>  
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pedidos</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'catalogos/site.css' %}"/>
+</head>
+    <body>
+        <div class="container">
+            <h1><b>Pedidos</b></h1>         
+                <table class="table table-warning table-hover ">
+                    <thead class="table-dark table-thead">
+                        <tr>
+                            <th scope="col">Codigo Pedido</th>
+                            <th scope="col">Importe</th>
+                            <th scope="col">Codigo cliente</th>
+                            <th scope="col">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in Pedidos %}
+                        <tr>
+                            <td> {{p.id_pedido}} </td>
+                            <td> {{p.importe}} </td>
+                            <td> {{p.id_cliente}} </td>
+                            <td> {{p.fecha}} </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="/">
+                <button type="submit" class="boton btn btn-warning">Ver Menu</button>
+                </a>
+                <a href="/clientes/">
+                <button type="submit" class="boton btn btn-warning">Ver Clientes</button>
+                </a>
+        </div>
+
+    </body>
+    {% bootstrap_javascript jquery=' full ' %}
+</html>
